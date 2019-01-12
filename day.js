@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
           .then(updated => console.log(updated.permissionOverwrites.get(rolename)))
           .catch(console.error)
     let Channel = "460953238670147587";
-    let rolename = message.guild.roles.get("460976106049110018");
     bot.channels.get(Channel).overwritePermissions(rolename, {
             VIEW_CHANNEL: false,
             SEND_MESSAGES: false
