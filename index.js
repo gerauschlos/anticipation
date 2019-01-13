@@ -10,21 +10,25 @@ fs.readdir("./commands/", (err, files) => {
     let jsfile = files.filter(f => f.split(".").pop() === "js");
     // Every file in command folder is a command (it counts how much files)
     if(jsfile.length <= 0){
-        console.log("No commands were found!");
+        console.log("No commands were found. Add commands to the Command folder, and try again.");
         return;
     }
+
+console.log(`Loading Commands...`)
+console.log(`────────────────────────────────────────`)
 
     jsfile.forEach((f, i) => {
         // The files created are shown in the terminal
         let props = require(`./commands/${f}`);
-        console.log(`${f} was loaded!`);
+        console.log(`The command ${f} was loaded.`);
         bot.commands.set(props.help.name, props);
         exports.help
     })
 })
 
 bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online!`)
+    console.log(`────────────────────────────────────────`)
+    console.log(`Town of Salem: ${bot.user.username} - Online!`)
     bot.user.setActivity("Prefix is '!?'", {type: "PLAYING"});
 });
 

@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         })
           .then(updated => console.log(updated.permissionOverwrites.get(match_members)))
           .catch(console.error)
-        message.channel.send("**It is now night time!**");
+        message.channel.send("🌃 Sunset");
     }else{
         message.channel.send(`You are not the host of this game!`);
     }
