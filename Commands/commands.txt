@@ -1,0 +1,26 @@
+```**Commands:**
+
+Action: 
+    !?action <message>
+    Sends your night action to the game log
+
+Day:
+    !?day
+    Enables Match-Members to talk in #mainmatch
+
+Jail:
+    !?jail <mention>
+    If you are the jailor enables you to jail the user you mentioned
+
+Send:
+    !?send <message>
+    Jailor can send messages to jailcell and jailed can send message to Jailor
+
+Night:
+    !?night
+    Disables Match-Members to talk in #mainmatch
+    
+Reveal:
+    !?reveal
+    If you are mayor then it gives you the mayor role
+```
