@@ -3,13 +3,13 @@ const Discord = require("discord.js");
 
 
 module.exports.run = async (bot, message, args) => {
-    let rolename = message.guild.roles.get("460976106049110018");
-    if(message.member.roles.some(r=>["Programmers", "Host"].includes(r.name))){
-        message.channel.overwritePermissions(rolename, {
+    let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
+    if(message.member.roles.some(r=>["God", "Host", "testing"].includes(r.name))){
+        message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: false
         })
-          .then(updated => console.log(updated.permissionOverwrites.get(rolename)))
+          .then(updated => console.log(updated.permissionOverwrites.get(match_members)))
           .catch(console.error)
         message.channel.send("**It is now night time!**");
     }else{

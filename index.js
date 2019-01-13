@@ -30,6 +30,7 @@ bot.on("ready", async () => {
 
 bot.on("message", async message => {
     let prefix = config.prefix;
+    
 
     if(!message.content.startsWith(prefix)) return;
     if(message.author.bot) return;
@@ -37,10 +38,11 @@ bot.on("message", async message => {
     
     let messageArray = message.content.split(" ")
     let cmd = messageArray[0];
-    let args = messageArray.slice(1); 
+    let args = message.content.split(cmd); 
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot, message, args);
+
 });
 
 bot.login(config.token);

@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 
 module.exports.run = async (bot, message, args) => {
-    let rolename = '460976106049110018';
-    let Mayor = '533127664769433600';
-    if(message.member.roles.has(rolename)){
+    let testing = '533782866694504459';
+    let Mayor = '533794447607988250';
+    if(message.member.roles.has(testing)){
         message.channel.send(`${message.author} has revealed themselves as Mayor`);
         message.member.addRole(Mayor).catch(console.error);
     }else{
