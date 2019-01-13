@@ -1,0 +1,14 @@
+Authorize link: https://discordapp.com/api/oauth2/authorize?client_id=515364375670816780&permissions=8&scope=bot
+
+const Discord = require("discord.js");
+
+
+module.exports.run = async (bot, message, args) => {
+
+    
+
+}
+
+module.exports.help = {
+
+}
