@@ -17,7 +17,7 @@ fs.readdir("./commands/", (err, files) => {
     jsfile.forEach((f, i) => {
         // The files created are shown in the terminal
         let props = require(`./commands/${f}`);
-        console.log(`${f} loaded!`);
+        console.log(`${f} was loaded!`);
         bot.commands.set(props.help.name, props);
         exports.help
     })
@@ -25,7 +25,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`)
-    bot.user.setActivity("Prefix is '>'!", {type: "STREAMING"});
+    bot.user.setActivity("Prefix is '!?'", {type: "PLAYING"});
 });
 
 bot.on("message", async message => {
