@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
           .then(updated => console.log(updated.permissionOverwrites.get(previousJailed)))
           .catch(console.error)      
         
-        message.channel.send("**It is now day time!**")
+        message.channel.send("🌄 Sunrise")
     }else{
         message.channel.send(`You are not the host of this game!`);
     }
