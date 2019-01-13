@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`${message.author} has revealed themselves as Mayor`);
         message.member.addRole(Mayor).catch(console.error);
     }else{
-        message.channel.send(`${message.author} yeh nice try dude`);
+        message.channel.send(`${message.author}, Error: 403 Forbidden`);
     }
 }
 

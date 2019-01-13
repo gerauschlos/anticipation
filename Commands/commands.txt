@@ -1,26 +1,27 @@
-```**Commands:**
+```diff
+**Commands:**
 
-Action: 
+-Action:-
     !?action <message>
-    Sends your night action to the game log
+    Sends your night action to the game log. Do not spam this with troll commands *or else*.
 
-Day:
+-Day:-
     !?day
-    Enables Match-Members to talk in #mainmatch
+    Enables Match-Members to talk in #mainmatch.
 
-Jail:
+-Jail:-
     !?jail <mention>
-    If you are the jailor enables you to jail the user you mentioned
+    If you are the jailor enables you to jail the user you mentioned.
 
 Send:
     !?send <message>
-    Jailor can send messages to jailcell and jailed can send message to Jailor
+    Jailor can send messages to jailcell and jailed can send message to Jailor. (This Command is Outdated and is being updated.)
 
 Night:
     !?night
-    Disables Match-Members to talk in #mainmatch
+    Disables Match-Members to talk in #mainmatch.
     
 Reveal:
     !?reveal
-    If you are mayor then it gives you the mayor role
+    If your role is mayor, you will be revealed.
 ```

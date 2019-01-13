@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     if(location === general_chat || location === deadchat) return;
     console.log("YES");
 
-    if(message.member.roles.some(r=>["testing", "Host", "God"].includes(r.name))){
+    if(message.member.roles.some(r=>["Host", "Admin", "Owner"].includes(r.name))){
         let tagged = message.mentions.roles.first();
         let jailed = tagged.id;
  //       console.log(jailed);
@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
         jailed = tagged;
         bot.channels.get(cell).send(`${jailed} you have been jailed`);
         bot.channels.get(cell).send("Use '>send [message]' to talk to the jailor");
-        message.channel.send(`${message.author} You have successfully jailed ${jailed}`);  
+        message.channel.send(`${jailed} has been jailed`);  
     }
 }
 
