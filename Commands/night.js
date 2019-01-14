@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
-    if(message.member.roles.some(r=>["God", "Host", "testing"].includes(r.name))){
+    if(message.member.roles.some(r=>["Admin", "Host", "Owner"].includes(r.name))){
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: false
