@@ -20,8 +20,7 @@ module.exports.run = async (bot, message, args) => {
         
         message.guild.channels.find(channel => channel.name === cell).send(`${jailed} you have been jailed`);
         message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor");
-        message.channel.send(`${message.author} You have successfully jailed the user`); 
-        exports.person = jailed; return 
+        message.channel.send(`${message.author} You have successfully jailed the user`);  
     }
 }
 
