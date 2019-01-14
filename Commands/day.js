@@ -5,11 +5,7 @@ var previousJailed = require('./jail.js');
 module.exports.run = async (bot, message, args) => {
     console.log(previousJailed);
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
-<<<<<<< HEAD
-    if(message.member.roles.some(r=>["Admin", "Host", "Testers"].includes(r.name))){
-=======
     if(message.member.roles.some(r=>["Admin", "Host", "Owner"].includes(r.name))){
->>>>>>> 6eab823d576c7e5c6a502549f05283f31cc7d2fc
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
