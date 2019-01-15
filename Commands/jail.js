@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     
     if(location === general_chat || location === deadchat) return;
 
-    
+  
     for(let i=3; i<args.length; i++ ){
          message_sent += args[i];
          console.log(message_sent);
@@ -41,9 +41,9 @@ module.exports.run = async (bot, message, args) => {
 
     if(message.member.roles.some(r=>["Host", "Admin", "Owner"].includes(r.name))){
         
-        message.guild.channels.find(channel => channel.name === cell).send(`${jailed} you have been jailed`);
+        message.guild.channels.find(channel => channel.name === cell).send(`${jailed}: You are jailed!`);
         message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor");
-        message.channel.send(`${message.author} You have successfully jailed the user`);  
+        message.channel.send(`${message.author}: Your target was jailed!`);  
     }
 
 }
