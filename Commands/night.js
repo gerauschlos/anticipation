@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     // console.log("Important: "+important.getday());
     let cell = important.getjailed();
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
+    if(message.channel.name ==! "mainmatch") return;
     if(message.member.roles.some(r=>["Admin", "Host", "Owner"].includes(r.name))){
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
@@ -16,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("🌃 Sunset");
         important.setday(false);
         if(cell !== " "){
-            message.guild.channels.find(channel => channel.name === important.getjailed()).send(`${cell.username} you have been jailed`);
+            message.guild.channels.find(channel => channel.name === important.getjailed()).send(`${cell.tag} you have been jailed`);
             message.guild.channels.find(channel => channel.name === important.getjailed()).send("Use '!?send [message]' to talk to the jailor");
             message.guild.channels.find(channel => channel.name === "jail").send(`You have successfully jailed the user`); 
         }else{

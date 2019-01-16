@@ -5,7 +5,7 @@ const important = require("../important.js");
 module.exports.run = async (bot, message, args) => {
     
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
-
+    if(message.channel.name ==! "mainmatch") return;
     if(message.member.roles.some(r=>["Admin", "Host", "Owner", "Programmers"].includes(r.name))){
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
