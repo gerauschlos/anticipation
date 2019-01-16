@@ -24,4 +24,8 @@ Night:
 Reveal:
     !?reveal
     If your role is mayor, you will be revealed.
+
+Rolelist:
+    !?rolelist
+    If you are a Admin+ you will get the rolelist of the current match.
 ```
