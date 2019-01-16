@@ -1,5 +1,6 @@
 var _day = false;
 var _jailed = " ";
+var jailor = "none"
 
 exports.setday = function(day) {
   _day = day;

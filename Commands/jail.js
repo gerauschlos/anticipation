@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
     if(location === "mainmatch" || location === "graveyard") return;
 
-    if(message.member.roles.some(r=>["Host", "Admin", "Owner"].includes(r.name))){
+    if(message.member.roles.some(r=>["Host", "Admin", "Owner", important.jailor].includes(r.name))){
         
         important.setjailed(cell);  
     }
