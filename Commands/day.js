@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         important.setjailed(" ");
 
     }else{
-        message.channel.send(`You are not the host of this game!`);
+        message.channel.send(`**Error:** 403 Forbibben`);
     }
     
 }
