@@ -3,7 +3,12 @@ const fs = require ("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-    var commandList = fs.readFileSync('Commands/commands.txt', 'utf8');
+    var commandList = fs.readFileSync('Commands/commands.txt', 'utf8'); 
+
+    if (location !== staff) {
+        
+        return
+    }
 
     if(message.member.roles.some(r=>["Owner", "Programmers"].includes(r.name))){
 
