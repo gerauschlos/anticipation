@@ -1,3 +1,4 @@
+**Current Game Rolelist:**
 1 | SK | 
 2 | TRIX |
 3 | CL | 
@@ -5,7 +6,7 @@
 5 | PM |
 6 | FR | 
 7 | VMP | 
-8 | MAYOR
+8 | MAYOR |
 9 | FR |
 10 | SV | 
 11 | GA | 
@@ -17,5 +18,3 @@
 17 | VMP | 
 18 | WITCH | 
 19 | MEDUSA |
-
-Yeh I just wanted the list handy, if you could update this for every game
