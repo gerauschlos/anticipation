@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(location !== "staff" || location !== "game-logs") return;
 
 
-    if(message.member.roles.some(r=>["Owner", "Programmers", "Developer"].includes(r.name))){
+    if(message.member.roles.some(r=>["Owner", "Programmers", "Developer","Admin"].includes(r.name))){
 
         message.channel.send(roleList);
     } else {

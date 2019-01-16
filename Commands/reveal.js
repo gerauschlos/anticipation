@@ -2,11 +2,11 @@ const Discord = require("discord.js");
 
 
 module.exports.run = async (bot, message, args) => {
-    let Mayor_User = config.mayor;
-    let Mayor = '533794447607988250';
-    if(message.member.roles.has(placeholder)){
+    let Mayor = config.mayor;
+    let mayorRole = message.guild.roles.get("533794447607988250")
+    if(message.member.roles.has(Mayor)){
         message.channel.send(`${message.author} has revealed themselves as Mayor`);
-        message.member.addRole(Mayor).catch(console.error);
+        message.member.addRole(mayorRole).catch(console.error);
     }else{
         message.channel.send(`${message.author}, Error: 403 Forbidden`);
     }
