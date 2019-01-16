@@ -3,16 +3,19 @@ const fs = require ("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-    var commandList = fs.readFileSync('Commands/commands.txt', 'utf8'); 
+    var roleList = fs.readFileSync('Commands/rolelist.txt', 'utf8'); 
 
     if (location !== staff) {
         
         return
     }
 
-    if(message.member.roles.some(r=>["Owner", "Programmers"].includes(r.name))){
+    if(location !== "staff" || location !== "game-logs") return;
 
-        message.channel.send(commandList);
+
+    if(message.member.roles.some(r=>["Owner", "Programmers", "Developer", "Admin"].includes(r.name))){
+
+        message.channel.send(roleList);
     } else {
 
         message.channel.send(`**Error:** 403 Forbidden`)
