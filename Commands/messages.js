@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args) => {
     let message_sent = args;
     let cell = important.getjailed();
     let message_channel = message.channel.name
+    if(cell === " ") return;
     if(message.member.roles.has(r=>[cell,"Host", "Admin"])){
         if(cell === message_channel){
 
