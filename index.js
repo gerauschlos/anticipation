@@ -14,8 +14,8 @@ fs.readdir("./commands/", (err, files) => {
         return;
     }
 
-console.log(`Loading Commands...`)
-console.log(`────────────────────────────────────────`)
+    console.log(`Loading Commands...`)
+    console.log(`────────────────────────────────────────`)
 
     jsfile.forEach((f, i) => {
         // The files created are shown in the terminal
