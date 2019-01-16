@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     var commandList = fs.readFileSync('Commands/commands.txt', 'utf8');
 
-    if(message.member.roles.some(r=>["Owner", "Programmers"].includes(r.name))){
+    if(message.member.roles.some(r=>["Owner", "Programmers", "Developer"].includes(r.name))){
 
         message.channel.send(commandList);
     } else {
