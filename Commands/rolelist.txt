@@ -1,4 +1,4 @@
-**Current Game Rolelist:**
+```**Current Game Rolelist:**
 1 | SK | 
 2 | TRIX |
 3 | CL | 
@@ -18,3 +18,4 @@
 17 | VMP | 
 18 | WITCH | 
 19 | MEDUSA |
+```
