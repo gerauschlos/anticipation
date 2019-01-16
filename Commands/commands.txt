@@ -13,19 +13,19 @@
     !?jail <mention>
     If you are the jailor enables you to jail the user you mentioned.
 
-Send:
+-Send:-
     !?send <message>
     Jailor can send messages to jailcell and jailed can send message to Jailor. (This Command is Outdated and is being updated.)
 
-Night:
+-Night:-
     !?night
     Disables Match-Members to talk in #mainmatch.
     
-Reveal:
+-Reveal:-
     !?reveal
     If your role is mayor, you will be revealed.
 
-Rolelist:
+-Rolelist:-
     !?rolelist
-    If you are a Admin+ you will get the rolelist of the current match.
+    If you are a Dev+ you will get the rolelist of the current match.
 ```
