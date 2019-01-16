@@ -1,21 +1,22 @@
-```**Current Game Rolelist:**
-1 | SK | 
-2 | TRIX |
-3 | CL | 
-4 | SS | 
-5 | PM |
-6 | FR | 
-7 | VMP | 
-8 | MAYOR |
-9 | FR |
-10 | SV | 
-11 | GA | 
-12 | PB | 
-13 | INV | 
-14 | JUGG |
-15 | PRT | 
-16 | AMNESIAC
-17 | VMP | 
-18 | WITCH | 
-19 | MEDUSA |
+```diff
+**+Current Game Rolelist+**
+01 | Serial Killer  | 
+02 | Trixster       |
+03 | Coven Leader   | 
+04 | ShapeShifter   | 
+05 | Potion Master  |
+06 | Framer         | 
+07 | Vampire        | 
+08 | Mayor          |
+09 | Framer         |
+10 | Survivor       | 
+11 | Guardian Angel | 
+12 | Plaguebearer   | 
+13 | Consigliere    | 
+14 | Juggernaut     |
+15 | Pirate         | 
+16 | Amnesiac       |
+17 | Vampire        | 
+18 | Witch          | 
+19 | Medusa         |
 ```
