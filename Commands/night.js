@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("🌃 Sunset");
         important.setday(false);
         if(cell ==! " "){
-            message.guild.channels.find(channel => channel.name === cell).send(`You have been jailed`);
+            message.guild.channels.find(channel => channel.name === cell).send("You have been jailed");
             message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor");
             message.guild.channels.find(channel => channel.name === "jail").send(`You have successfully jailed the user`); 
         }else{
