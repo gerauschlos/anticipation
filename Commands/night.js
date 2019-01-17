@@ -6,8 +6,9 @@ module.exports.run = async (bot, message, args) => {
     // console.log("Important: "+important.getday());
     let cell = important.getjailed();
     console.log(important.getjailed());
+    let eachChannel = "wow";
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
-    if(message.channel.name ==! "mainmatch") return;
+    if(message.channel.name !== "mainmatch") return;
     if(message.member.roles.some(r=>["Admin", "Host", "Owner"].includes(r.name))){
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
@@ -17,16 +18,18 @@ module.exports.run = async (bot, message, args) => {
           .catch(console.error)
         message.channel.send("🌃 Sunset");
         important.setday(false);
-        if(cell ==! " "){
-            message.guild.channels.find(channel => channel.name === cell).send("You have been jailed");
-            message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor");
-            message.guild.channels.find(channel => channel.name === "jail").send(`You have successfully jailed the user`); 
+        if(cell ==! "no"){
+            message.guild.channels.find(channel => channel.name === cell).send("You have been jailed")
+            message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor")
+            message.guild.channels.find(channel => channel.name === "jail").send("You have successfully jailed the user")
         }else{
-            message.guild.channels.find(channel => channel.name === "jail").send(`You forgot to jail someone :weary:`);
+            message.guild.channels.find(channel => channel.name === "jail").send(`You forgot to jail someone :weary:`)
         }
         
-       for(let i=0; i<26; i++ ){
-            message.guild.channels.find(channel => channel.name === i).send("```-------------------------------- **NIGHT TIME** ---------------------------------```");
+       for(let i=1; i<26; i++ ){
+            eachChannel = i.toString();
+          //  console.log(eachChannel);
+            message.guild.channels.find(channel => channel.name === eachChannel).send("```-------------------------------- **NIGHT TIME** ---------------------------------```")
         }              
     } else {
         message.channel.send(`**Error:** 403 Forbidden`);
