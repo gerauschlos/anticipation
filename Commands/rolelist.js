@@ -4,7 +4,7 @@ const fs = require ("fs");
 module.exports.run = async (bot, message, args) => {
 
     let data = fs.readFileSync('Commands/rolelist.txt', 'base64');  
-    let buff = new Buffer(data, 'base64');  
+    let buff = new Buffer.from(data, 'base64');  
     let text = buff.toString('utf-8');
     let location = message.channel.name;
     console.log(location);
