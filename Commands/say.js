@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
       if(message.member.roles.some(r=>["Developer", "Owner"].includes(r.name))) {
       const sayMessage = args.join(" ");
       message.delete().catch();
-      message.channel.send(sayMessage);
+      message.channel.send(sayMessage).catch(console.error);
 
       }
 
