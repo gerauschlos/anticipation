@@ -21,14 +21,14 @@ module.exports.run = async (bot, message, args) => {
             message.guild.channels.find(channel => channel.name === important.getjailed()).send("Use '!?send [message]' to talk to the jailor");
             message.guild.channels.find(channel => channel.name === "jail").send(`You have successfully jailed the user`); 
         }else{
-            message.guild.channels.find(channel => channel.name === "jail").send(`You forgot to jail someone :weary::ok_hand: `);
+            message.guild.channels.find(channel => channel.name === "jail").send(`You forgot to jail someone :weary:`);
         }
         
        for(let i=0; i<26; i++ ){
             message.guild.channels.find(channel => channel.name === i).send("```-------------------------------- **NIGHT TIME** ---------------------------------```");
         }              
-    }else{
-        message.channel.send(`You are not the host of this game!`);
+    } else {
+        message.channel.send(`**Error:** 403 Forbidden`);
     }
 }
 

@@ -5,7 +5,6 @@ module.exports.run = async (bot, message, args) => {
     let location = message.channel.name;
     console.log(location);
     message.channel.send(`Pong! | API Latency is ${Math.round(bot.ping)}ms`)
-   // console.log(rolename);
    
 }
 
