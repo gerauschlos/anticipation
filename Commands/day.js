@@ -4,6 +4,7 @@ const important = require("../important.js");
 
 module.exports.run = async (bot, message, args) => {
     
+    let chat = " ";
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
     if(message.channel.name ==! "mainmatch") return;
     if(message.member.roles.some(r=>["Admin", "Host", "Owner", "Programmers"].includes(r.name))){
@@ -19,7 +20,8 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("🌄 Sunrise")
         
        for(let i=0; i<26; i++ ){
-            message.guild.channels.find(channel => channel.name === i).send("```-------------------------------- **DAY TIME** ---------------------------------```");
+            chat = toString(i);
+            message.guild.channels.find(channel => channel.name === chat).send("```-------------------------------- **DAY TIME** ---------------------------------```");
         }
 
         important.setjailed(" ");
