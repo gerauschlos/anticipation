@@ -7,8 +7,9 @@ module.exports.run = async (bot, message, args) => {
       message.delete().catch();
       message.channel.send(sayMessage).catch(console.error);
 
+      } else {
+        message.channel.send(`**Error:** 403 Forbidden`)
       }
-
 }
 
 module.exports.help = {
