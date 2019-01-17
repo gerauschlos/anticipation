@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     
     let chat = " ";
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
-    if(message.channel.name ==! "mainmatch") return;
+    if(message.channel.name !== "mainmatch") return;
     if(message.member.roles.some(r=>["Admin", "Host", "Owner", "Programmers"].includes(r.name))){
         message.channel.overwritePermissions(match_members, {
             VIEW_CHANNEL: true,
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             message.guild.channels.find(channel => channel.name === chat).send("```-------------------------------- **DAY TIME** ---------------------------------```");
         }
 
-        important.setjailed(" ");
+        important.setjailed("no");
 
     }else{
         message.channel.send(`**Error:** 403 Forbibben`);
