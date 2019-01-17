@@ -19,8 +19,8 @@ module.exports.run = async (bot, message, args) => {
       //  console.log("Important: "+important.getday());
         message.channel.send("🌄 Sunrise")
         
-       for(let i=0; i<26; i++ ){
-            chat = toString(i);
+       for(let i=1; i<26; i++ ){
+            chat = i.toString();
             message.guild.channels.find(channel => channel.name === chat).send("```-------------------------------- **DAY TIME** ---------------------------------```");
         }
 
