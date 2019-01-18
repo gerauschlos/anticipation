@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/Gangster8192/Anticipation",
   "author": "Dominic + Gangster8192",
   "license": "ISC",
   "dependencies": {
