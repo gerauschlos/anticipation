@@ -4,6 +4,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const fs = require ("fs");
 bot.commands = new Discord.Collection();
 
+function loadCmds () {
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
 
@@ -20,14 +21,19 @@ fs.readdir("./commands/", (err, files) => {
     jsfile.forEach((f, i) => {
         // The files created are shown in the terminal
         let props = require(`./commands/${f}`);
-        console.log(`The command ${f} was loaded.`);
+        console.log(`Loading ${f}...`);
         bot.commands.set(props.help.name, props);
         exports.help
+
     })
-})
+
+    console.log(`────────────────────────────────────────`)
+
+})}
+
+loadCmds();
 
 bot.on("ready", async () => {
-    console.log(`────────────────────────────────────────`)
     console.log(`Town of Salem: ${bot.user.username} - Online!`)
     bot.user.setActivity("Prefix is '!?'", {type: "PLAYING"});
 });

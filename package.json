@@ -1,14 +1,15 @@
 {
-  "name": "trial",
+  "name": "Anticipation",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a bot for Town of Salem: Anticipation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dominic",
+  "author": "Dominic + Gangster8192",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "util": "^0.11.1"
   }
 }
