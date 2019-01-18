@@ -4,6 +4,7 @@ const config = require('../config.json');
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
+
 module.exports.run = async (bot, message, args) => {
 
     let owner = config.Gangster
@@ -13,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
 
         function loadCmds () {
-            fs.readdir("../commands/", (err, files) => {
+            fs.readdir("commands/", (err, files) => {
                 if (err) console.log(err);
             
                 let jsfile = files.filter(f => f.split(".").pop() === "js");
@@ -28,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
             
                 jsfile.forEach((f, i) => {
                     // The files created are shown in the terminal
-                    let props = require(`../commands/${f}`);
+                    let props = require(`/Users/phumb/Documents/GitHub/anticipation/commands/${f}`);
                     console.log(`Loading ${f}...`);
                     bot.commands.set(props.help.name, props);
                     exports.help
