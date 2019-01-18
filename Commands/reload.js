@@ -1,16 +1,19 @@
 const Discord = require("discord.js");
 const fs = require ("fs");
 const config = require('../config.json');
+const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection();
 
 module.exports.run = async (bot, message, args) => {
 
     let owner = config.Gangster
-    if(message.author.id !== owner) {
+    let Silent = config.x88silent
+    if(message.author.id !== owner && message.author.id !== Silent) {
         message.channel.send(`**Error:** 403 Forbidden.`)
     } else {
 
         function loadCmds () {
-            fs.readdir("./Commands/", (err, files) => {
+            fs.readdir("../commands/", (err, files) => {
                 if (err) console.log(err);
             
                 let jsfile = files.filter(f => f.split(".").pop() === "js");
@@ -25,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
             
                 jsfile.forEach((f, i) => {
                     // The files created are shown in the terminal
-                    let props = require(`./Commands/${f}`);
+                    let props = require(`../commands/${f}`);
                     console.log(`Loading ${f}...`);
                     bot.commands.set(props.help.name, props);
                     exports.help
@@ -38,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
         
 
         loadCmds()
-        message.channel.send({embed:{description:"All Commands Reloaded"}})
+        message.channel.send({embed:{description:"All Commands Reloaded"}});
 
 
     }
