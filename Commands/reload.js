@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
             
                 jsfile.forEach((f, i) => {
                     // The files created are shown in the terminal
-                    let props = require(`/Users/phumb/Documents/GitHub/anticipation/commands/${f}`);
+                    let props = require(`./commands/${f}`);
                     console.log(`Loading ${f}...`);
                     bot.commands.set(props.help.name, props);
                     exports.help
