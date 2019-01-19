@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
-    if(location ==! "jail") return;
+    if(location !== "jail") return;
 
     if(message.member.roles.some(r=>["Host", "Admin", "Owner", important.jailor].includes(r.name))){
         
