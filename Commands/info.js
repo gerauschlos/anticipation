@@ -6,7 +6,26 @@ module.exports.run = async (bot, message, args) => {
 
 
     if(args_!=="trickster"||args_!=="houndmaster"||args_!=="cleric"||args_!=="ninja"||args_!== "officer"||args_!=="shapeshifter" ){
-        message.channel.send(args_);
+        message.channel.send("Check your spelling or visit http://town-of-salem.wikia.com/wiki/Roles for town of salem original roles");
+    }else{
+        if(args_==="trickster"){
+       
+        }
+        if(args_==="houndmaster"){
+
+        }
+        if(args_==="cleric"){
+
+        }
+        if(args_==="ninja"){
+
+        }
+        if(args_==="officer"){
+
+        }
+        if(args_==="shapeshifter"){
+            
+        }
     }
     
 
