@@ -37,11 +37,11 @@ module.exports.run = async (bot, message, args) => {
                 })
             
                 console.log(`────────────────────────────────────────`)
-            
             })}
         
 
         loadCmds()
+
         message.channel.send({embed:{description:"All Commands Reloaded"}});
 
 
