@@ -10,10 +10,14 @@ module.exports.run = async (bot, message, args) => {
     } else {
 
         const clean = text => {
-            if (typeof(text) === "string")
-              return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-            else
+            if (typeof(text) === "string" ) {
+                return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+            } else if (evaled.length > 2000) {
+                message.channel.send(`The eval must be less than 2000 characters!`)
+            } else {
                 return text;
+            }
+
           }
 
           try {
