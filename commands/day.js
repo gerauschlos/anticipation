@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 
         important.setjailed("no");
 
-    }else{
+    } else {
         message.channel.send(`**Error:** 403 Forbibben`);
     }
     
