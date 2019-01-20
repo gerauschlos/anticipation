@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
        for(let i=1; i<26; i++ ){
             eachChannel = i.toString();
           //  console.log(eachChannel);
-            message.guild.channels.find(channel => channel.name === eachChannel).send("```-------------------------------- **NIGHT TIME** ---------------------------------```")
+            message.guild.channels.find(channel => channel.name === eachChannel).send("```----------------------- **NIGHT TIME** -----------------------```")
         }              
     } else {
         message.channel.send(`**Error:** 403 Forbidden`);

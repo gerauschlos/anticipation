@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         
        for(let i=1; i<26; i++ ){
             chat = i.toString();
-            message.guild.channels.find(channel => channel.name === chat).send("```-------------------------------- **DAY TIME** ---------------------------------```");
+            message.guild.channels.find(channel => channel.name === chat).send("```----------------------- **DAY TIME** -----------------------```");
         }
 
         important.setjailed("no");
