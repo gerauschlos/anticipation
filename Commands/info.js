@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor(0xff0000)
     .addField("Attack", "None", true)
     .addField("Defense", "None", true)
-    .addField("Unique?", "No", true)
+    .addField("Unique?", "Yes", true)
     .addField("Info","Gets a single use to select a dead player from the graveyard that had been killed, and sees two people who might be the killer. Will reveal janitor if cleaned. If multiple people killed the player, they will still see three names so if two people attack then it will show two of the killers and an innocent.")
     .setFooter("Custom Role: Hound Master")
 
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor(0xff0000)
     .addField("Attack", "None", true)
     .addField("Defense", "None", true)
-    .addField("Unique?", "Yes", true)
+    .addField("Unique?", "No", true)
     .addField("Info","At night, can select any target. Anyone who visits that target is healed, but the target is not.  Can only target themselves once.")
     .setFooter("Custom Role: Cleric")
 
