@@ -5,12 +5,11 @@ module.exports.run = async (bot, message, args) => {
     let args_ = lowerCase(args[1]);
 
 
-    if(args_!=="trickster" || args_!=="houndmaster" || args_!=="cleric" || args_!=="ninja" || args_!== "officer" || args_!=="shapeshifter" ){
+    if(args_!=="trickster" || args_!=="houndmaster" || args_!=="cleric" || args_!=="ninja" || args_!== "officer" || args_!=="shapeshifter" ) {
         message.channel.send(`Visit http://town-of-salem.wikia.com/wiki/Roles for the original roles.`);
     } else {
-        if(args_==="trickster"){
-            message.channel.send(`**Trickster:** Attack: None | Defense: None | Mafia Support | 
-         Can select a dead person and use their ability on anyone at night. Works for every role except unique town roles. can only select the same person once.`)
+        if(args_===" trickster"){
+            message.channel.send(`(node:696969) DeprecationWarning: This role was removed!`)
         }
         if(args_===" houndmaster"){
             message.channel.send(`**Houndmaster:**  Attack: None | Defense: None | Town Investigative | Unique

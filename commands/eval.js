@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     let owner = config.Gangster
     if(message.author.id !== owner) {
-        message.channel.send(`**Error:** 403 Forbidden.`)
+        message.channel.send(`**Error:** 404 Not Found`)
     } else {
 
         const clean = text => {
@@ -18,10 +18,10 @@ module.exports.run = async (bot, message, args) => {
 
           try {
             const code = args.join(" ");
-            let evaled = eval(code);
+            let evaled = await eval(code);
        
             if (typeof evaled !== "string")
-              evaled = require("util").inspect(evaled);
+              evaled = await require("util").inspect(evaled);
        
             message.channel.send(clean(evaled), {code:"xl"});
           } catch (err) {
