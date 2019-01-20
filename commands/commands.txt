@@ -30,4 +30,7 @@
 -Rolelist:-
     !?rolelist
     If you are a Admin+ you will get the rolelist of the current match.
+
+-Say:-
+    !?say
 ``` 
