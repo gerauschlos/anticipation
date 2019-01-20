@@ -4,6 +4,8 @@ let config = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
     let Mayor = config.mayor;
+    let location = message.channel.name;
+    if(location !== "mainmatch") return;
     let mayorRole = message.guild.roles.get("533794447607988250")
     if(message.member.roles.has(Mayor)){
         message.channel.send(`${message.author} has revealed themselves as Mayor`);
