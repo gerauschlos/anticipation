@@ -2,19 +2,19 @@ const Discord = require("discord.js");
 const important = require("../important.js");
 
 module.exports.run = async (bot, message, args) => {
-    let message_sent = args;
+    let message_sent = args[1];
     let cell = important.getjailed();
     let message_channel = message.channel.name
     if(cell === "no") return;
     if(message.member.roles.has(r=>[cell,"Host", "Admin"])){
-        if(cell === message_channel){
+        if(cell === message_channel.toString()){
 
-            bot.channels.get(jailor_channel).send(`${message.author}: `+ message_sent);
+            bot.channels.find(channel => channel.name === "jail").send(`${message.author}: `+ message_sent);
             message.channel.send("sent");
             return;
         }else{
-            if("jail" === message_channel){
-            bot.channels.get(cell).send("**Jailor:** "+ message_sent);
+            if(message_channel.toString() === "jail"){
+            bot.channels.get(channel => channel.name === cell).send("**Jailor:** "+ message_sent);
             message.channel.send("sent");
             return;
             }
