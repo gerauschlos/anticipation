@@ -8,8 +8,8 @@ bot.commands = new Discord.Collection();
 module.exports.run = async (bot, message, args) => {
 
     let owner = config.Gangster
-    let Silent = config.x88silent
-    if(message.author.id !== owner && message.author.id !== Silent) {
+    let owner2 = config.x88silent
+    if(message.author.id !== owner && message.author.id !== owner2) {
         message.channel.send(`**Error:** 403 Forbidden.`)
     } else {
 
@@ -24,13 +24,13 @@ module.exports.run = async (bot, message, args) => {
                     return;
                 }
             
-                console.log(`Loading Commands...`)
+                console.log(`Reloading Commands...`)
                 console.log(`────────────────────────────────────────`)
             
                 jsfile.forEach((f, i) => {
                     // The files created are shown in the terminal
                     let props = require(`../commands/${f}`);
-                    console.log(`Loading ${f}...`);
+                    console.log(`Reloading ${f}...`);
                     bot.commands.set(props.help.name, props);
                     exports.help
             

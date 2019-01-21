@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
         
         important.setday(true);
       //  console.log("Important: "+important.getday());
+        message.delete().catch();
         message.channel.send("🌄 Sunrise")
         
        for(let i=1; i<26; i++ ){

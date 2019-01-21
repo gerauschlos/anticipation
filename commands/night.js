@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
         })
           .then(updated => console.log(updated.permissionOverwrites.get(match_members)))
           .catch(console.error)
+        message.delete().catch();
         message.channel.send("🌃 Sunset");
         important.setday(false);
         if(cell !== "no"){

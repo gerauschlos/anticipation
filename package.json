@@ -1,17 +1,29 @@
 {
-  "name": "Anticipation",
+  "name": "anticipation",
   "version": "1.0.0",
-  "description": "This is a bot for Town of Salem: Anticipation",
+  "description": "This is the bot for the Town of Salem: Anticipation discord!",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "https://github.com/Gangster8192/Anticipation",
-  "author": "Dominic + Gangster8192",
-  "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
     "lower-case": "^1.1.4",
     "util": "^0.11.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "!?ping"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gangster8192/anticipation.git"
+  },
+  "keywords": [
+    "!?"
+  ],
+  "author": "Gangster8192 + x88silent",
+  "license": "LicenseRef-LICENSE",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/Gangster8192/anticipation/issues"
+  },
+  "homepage": "https://github.com/Gangster8192/anticipation#readme"
 }
