@@ -2,6 +2,7 @@ var _day = false;
 var _jailed = "";
 var jailor = "none"
 
+
 exports.setday = function(day) {
   _day = day;
 };
@@ -17,3 +18,4 @@ exports.setjailed = function(jailed){
 exports.getjailed = function() {
   return _jailed;
 }
+

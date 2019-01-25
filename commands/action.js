@@ -6,16 +6,31 @@ module.exports.run = async (bot, message, args) => {
         let logs = "533777407354601472"; //UPDATED
         let general_chat = "523693033825501190"; //UPDATED
         let location = message.channel.parent.name;
-        let player = `${message.author}`;
+        let player = `${message.author.username}`;
 
         if(location !== "Player Chats") return;
       //console.log(args[1]);
       //if(args[1] !== " kill" || args[1] !== " protect" || args[1] !== " invest") return;
 
-    /*    for(let i=0; i<args.length; i++ ){
+        /*for(let i=0; i<args.length; i++ ){
             message_sent += args[i];
         }  */
-        bot.channels.get(logs).send(player+"-"+message_sent)  ;
+        //if()
+        let roles = ["Admin"]
+        roles[1] = "Godfater";
+        roles[2] = "Medium";
+        roles[3] = "Jailor"
+        if(args[1] === " kill"){
+            for(let i = 0; 0<i<4; i++){
+            if(message.member.roles.has(r=>[i.tostring,"Host", "Admin"])){
+                return;
+            }
+        }
+        }
+
+        
+
+        bot.channels.get(logs).send("```"+player+":"+message_sent+"```")  ;
 }
 
 module.exports.help = {
