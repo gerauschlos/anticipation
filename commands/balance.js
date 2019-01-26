@@ -4,7 +4,7 @@ const eco = require('discord-economy')
 
 module.exports.run = async (bot, message, args) => {
 
-    
+    message.channel.send(``)
 
 }
 

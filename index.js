@@ -9,7 +9,7 @@ fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js");
-    // Every file in command folder is a command (it counts how much files)
+    
     if(jsfile.length <= 0){
         console.log("No commands were found. Add commands to the Command folder, and try again.");
         return;
@@ -19,7 +19,7 @@ fs.readdir("./commands/", (err, files) => {
     console.log(`────────────────────────────────────────`)
 
     jsfile.forEach((f, i) => {
-        // The files created are shown in the terminal
+        
         let props = require(`./commands/${f}`);
         console.log(`Loading ${f}...`);
         bot.commands.set(props.help.name, props);
@@ -54,5 +54,25 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot, message, args);
 
 });
+
+//Economy Start
+bot.on("message", async message => {
+    let sender = message.author
+    let userData = JSON.parse(fs.readFileSync('Storage/userData.json', 'utf-8'));
+    
+    if (!userData[sender.id + message.guild.id]) userData[sender.id + message.guild.id] = {}
+    if (!userData[sender.id + message.guild.id].money) userData[sender.id + message.guild.id].money = 0;
+    
+    fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
+        if (err) console.error(err)
+    })
+})
+
+bot.on('ready', async () => {
+    console.log(`────────────────────────────────────────`)
+    console.log('Economy Launched...')
+})
+
+//Economy End
 
 bot.login(config.token);
