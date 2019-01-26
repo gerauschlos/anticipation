@@ -40,14 +40,9 @@ module.exports.run = async (bot, message, args) => {
         }  */
         //if()
         let roles = ["Admin"]
-        roles[1] = "Godfater";
-        roles[2] = "Medium";
-        roles[3] = "Jailor"
-        if(args[1] === " kill"){
-            for(let i = 0; 0<i<4; i++){
-            if(message.member.roles.has(r=>[i.tostring,"Host", "Admin"])){
-                return;
-            }
+        if(message_sent.startWith(" invest") === " invest"){
+            player = message.mentions.roles.first().toString;
+            messager.channel.send(role.get(player)); 
         }
         }
 
