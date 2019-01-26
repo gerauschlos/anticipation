@@ -13,6 +13,8 @@ module.exports.run = async (bot, message, args) => {
         
         fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
             if (err) console.error(err)
+
+      return;
     })
 
     if(userData[sender.id + message.guild.id]) {
