@@ -42,6 +42,7 @@ module.exports.run = async (bot, message, args) => {
         let roles = ["Admin"]
         if(message_sent.startsWith(" invest") === " invest"){
             player = message.mentions.roles.first().toString;
+            console.log(player);
             messager.channel.send(role.get(player)); 
         }
         
