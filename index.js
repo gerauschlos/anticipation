@@ -55,24 +55,13 @@ bot.on("message", async message => {
 
 });
 
-//Economy Start
-bot.on("message", async message => {
-    let sender = message.author
-    let userData = JSON.parse(fs.readFileSync('Storage/userData.json', 'utf-8'));
-    
-    if (!userData[sender.id + message.guild.id]) userData[sender.id + message.guild.id] = {}
-    if (!userData[sender.id + message.guild.id].money) userData[sender.id + message.guild.id].money = 0;
-    
-    fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
-        if (err) console.error(err)
-    })
-})
+//Economy: Create Balence Moved to account-create.js
+
 
 bot.on('ready', async () => {
     console.log(`────────────────────────────────────────`)
     console.log('Economy Launched...')
+    console.log(`────────────────────────────────────────`)
 })
-
-//Economy End
 
 bot.login(config.token);
