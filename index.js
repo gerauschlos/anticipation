@@ -55,7 +55,7 @@ bot.on("message", async message => {
 
 });
 
-//Economy: Create Balence Moved to account-create.js
+//Economy: Create Balance Moved to account-create.js
 
 
 bot.on('ready', async () => {
