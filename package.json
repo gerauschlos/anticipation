@@ -4,8 +4,11 @@
   "description": "This is the bot for the Town of Salem: Anticipation discord!",
   "main": "index.js",
   "dependencies": {
+    "discord-economy": "^1.1.6",
     "discord.js": "^11.4.2",
     "lower-case": "^1.1.4",
+    "sequelize": "^4.42.0",
+    "sqlite3": "^4.0.6",
     "util": "^0.11.1"
   },
   "devDependencies": {},
