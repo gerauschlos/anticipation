@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
         }  */
         //if()
         let roles = ["Admin"]
-        if(message_sent.startWith(" invest") === " invest"){
+        if(message_sent.startsWith(" invest") === " invest"){
             player = message.mentions.roles.first().toString;
             messager.channel.send(role.get(player)); 
         }
@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
 
         
 
-        bot.channels.get(logs).send("```"+player+":"+message_sent+"```")  ;
+        //bot.channels.get(logs).send("```"+player+":"+message_sent+"```")  ;
 }
 
 module.exports.help = {
