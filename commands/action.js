@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
             player = message.mentions.roles.first().toString;
             messager.channel.send(role.get(player)); 
         }
-        }
+        
 
         
 
