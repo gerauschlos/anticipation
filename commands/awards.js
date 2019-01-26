@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     let owner = config.Gangster
     let mention = message.mentions.members.first();
-    if(message.author.id !== owner) {
+    if(message.author.id !== owner && message.author.id !== config.x88silent) {
         message.channel.send(`**Error:** 404 Not Found`);
     } else {
         message.channel.send(`This command is a **WIP**!`)
