@@ -40,10 +40,13 @@ module.exports.run = async (bot, message, args) => {
         }  */
         //if()
         let roles = ["Admin"]
-        if(message_sent.startsWith(" invest") === " invest"){
-            player = message.mentions.roles.first().toString;
-            console.log(player);
-            messager.channel.send(role.get(player)); 
+        if(message.mentions.roles()){
+        if(message_sent.startsWith(" invest")){
+            player = message.mentions.roles.first().name;
+            message.channel.send("Your target's is"+role.get(player)); 
+        }
+        }else{
+            message.channel.send("You have to tag a **role** for this command");
         }
         
 
