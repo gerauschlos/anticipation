@@ -71,6 +71,7 @@ The commands can be found by running the !?help command or are listed here.
 * [Node.js](https://nodejs.org/) - Used to run js outside of the browser.
 * [Discord.js](https://discord.js.org/#/) - Node.js library.
 * [Countdown](https://www.npmjs.com/package/countdown) - NPM Package.
+* [FS](https://nodejs.org/api/fs.html) - Node API
 
 
 ## Authors
