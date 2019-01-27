@@ -3,7 +3,7 @@ const fs = require ("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-    let data = fs.readFileSync('modules/rolelist.txt', 'uft-8');   
+    let data = fs.readFileSync('modules/rolelist.txt', 'utf-8');   
     let location = message.channel.name;
     console.log(location);
     if(location ==! "staff" || location ==! "game-logs") return;
