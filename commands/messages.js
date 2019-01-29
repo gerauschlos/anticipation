@@ -13,11 +13,11 @@ module.exports.run = async (bot, message, args) => {
             bot.channels.find(channel => channel.name === "jail").send(`${message.author}: `+ message_sent);
             message.channel.send("sent");
             return;
-        }else{
+         }else{
             if(message_channel.toString() === "jail"){
-            bot.channels.get(channel => channel.name === cell).send("**Jailor:** "+ message_sent);
-            message.channel.send("sent");
-            return;
+                bot.channels.get(channel => channel.name === cell).send("**Jailor:** "+ message_sent);
+                message.channel.send("sent");
+                return;
             }
         }
     }
