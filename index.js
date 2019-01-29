@@ -33,10 +33,6 @@ fs.readdir("./commands/", (err, files) => {
 
 loadCmds();
 
-bot.on("ready", async () => {
-    console.log(`Town of Salem: ${bot.user.username} - Online!`)
-    bot.user.setActivity("Prefix is '!?'", {type: "PLAYING"});
-});
 
 bot.on("message", async message => {
     let prefix = config.prefix;
@@ -57,11 +53,12 @@ bot.on("message", async message => {
 
 //Economy: Create Balance Moved to account-create.js
 
-
-bot.on('ready', async () => {
-    console.log(`────────────────────────────────────────`)
+bot.on("ready", async () => {
     console.log('Economy Launched...')
     console.log(`────────────────────────────────────────`)
-})
+    console.log(`Town of Salem: ${bot.user.username} - Online!`)
+    bot.user.setActivity("Prefix is '!?'", {type: "PLAYING"});
+});
+
 
 bot.login(config.token);
