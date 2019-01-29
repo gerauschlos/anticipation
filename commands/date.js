@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const fs = require('fs');
-const countdown = require('countdown')
+const countdown = require("countdown");
 
 module.exports.run = async (bot, message, args) => {
 

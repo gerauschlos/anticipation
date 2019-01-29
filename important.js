@@ -1,6 +1,6 @@
 var _day = false;
 var _jailed = "";
-var jailor = "none"
+var jailor = "226034191047983114"
 var trial = "noone"
 var votes = 0
 
