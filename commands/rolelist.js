@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let data = fs.readFileSync('modules/rolelist.txt', 'utf-8');   
     let location = message.channel.name;
     console.log(location);
-    if(location ==! "staff" || location ==! "game-logs") return;
+    if(location !== "staff" || location !== "game-logs") return;
 
     if(message.member.roles.some(r=>["Owner", "Programmers", "Developer","Admin"].includes(r.name))){
 

@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
           .then(updated => console.log(updated.permissionOverwrites.get(match_members)))
           .catch(console.error)
         message.delete().catch();
-        message.channel.send("🌃 Sunset");
+        message.channel.send("🌃 Sunset"+`@Players`);
         important.setday(false);
         if(cell !== "no"){
             message.guild.channels.find(channel => channel.name === cell).send("You have been jailed")
