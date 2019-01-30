@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
           .then(updated => console.log(updated.permissionOverwrites.get(match_members)))
           .catch(console.error)
         message.delete().catch();
-        message.channel.send("🌃 Sunset"+`@Players`);
+        message.channel.send("🌃 Sunset"+` <@&529053936120758303>`);
         important.setday(false);
         if(cell !== "no"){
             message.guild.channels.find(channel => channel.name === cell).send("You have been jailed")
@@ -25,13 +25,7 @@ module.exports.run = async (bot, message, args) => {
             message.guild.channels.find(channel => channel.name === "jail").send("You have successfully jailed the user")
         }else{
             message.guild.channels.find(channel => channel.name === "jail").send(`You forgot to jail someone :weary:`)
-        }
-        
-       for(let i=1; i<26; i++ ){
-            eachChannel = i.toString();
-          //  console.log(eachChannel);
-            message.guild.channels.find(channel => channel.name === eachChannel).send("```----------------------- **NIGHT TIME** -----------------------```")
-        }              
+        }        
     } else {
         message.channel.send(`**Error:** 403 Forbidden`);
     }

@@ -18,12 +18,7 @@ module.exports.run = async (bot, message, args) => {
         important.setday(true);
       //  console.log("Important: "+important.getday());
         message.delete().catch();
-        message.channel.send("🌄 Sunrise"+`@Players`)
-        
-       for(let i=1; i<26; i++ ){
-            chat = i.toString();
-            message.guild.channels.find(channel => channel.name === chat).send("```----------------------- **DAY TIME** -----------------------```");
-        }
+        message.channel.send("🌄 Sunrise"+` <@&529053936120758303>`)
 
         important.setjailed("no");
 
