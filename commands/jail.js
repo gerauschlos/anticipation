@@ -32,8 +32,8 @@ module.exports.run = async (bot, message, args) => {
     }
     
 
-    if(message.member.roles.some(r=>["Host", "Admin", "Owner", important.jailor].includes(r.name))){
-            
+    if(message.member.roles.some(r=>["Host", "Administrator", "Owner", important.jailor].includes(r.name))){
+           
         let jailed = cell.toString();
         important.setjailed(jailed);  
     }
