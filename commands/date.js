@@ -4,10 +4,10 @@ const countdown = require('countdown')
 
 module.exports.run = async (bot, message, args) => {
 
-    let matchtime = countdown(new Date(), new Date(2019, 0, 29, 17, 00, 00, 00) ).toString();
+    let matchtime = countdown(new Date(), new Date(2019, 0, 30, 17, 00, 00, 00) ).toString();
     message.delete().catch();
     message.channel.send(`The match will start in ${matchtime}!`)
-
+    
 }
 
 
