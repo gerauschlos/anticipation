@@ -36,15 +36,15 @@ loadCmds();
 
 bot.on("message", async message => {
     let prefix = config.prefix;
-    
 
     if(!message.content.startsWith(prefix)) return;
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
     
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     let messageArray = message.content.split(" ")
     let cmd = messageArray[0];
-    let args = message.content.split(cmd); 
+    const command = args.shift().toLowerCase();
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot, message, args);
