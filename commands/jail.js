@@ -42,9 +42,9 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    
+    console.log(important._day)
     if(location !== "jail") return;
-    if(important._day === false){
+    if(!important._day){
         message.channel.send("This command cannot be used in the night :grimacing:");
         return;
     }
