@@ -21,10 +21,10 @@ module.exports.run = async (bot, message, args) => {
         errors: ["time"]
         }).then(collected => {
             let reply = collected.first().content;
-            if(lowerCase(reply) === "y" || lowerCase(reply) === "yes"){
+            if (lowerCase(reply) === "y" || lowerCase(reply) === "yes"){
             bot.channels.find(channel => channel.name === "game-logs").send(`${message.author}: `+ message_sent);
             message.channel.send(":thumbsup:")
-            }else{
+            } else {
             message.channel.send("**Cancelled**");  
            }
 
