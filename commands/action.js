@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-var lowerCase = require('lower-case');
+const lowerCase = require('lower-case');
 const important = require("../important.js");
 
 module.exports.run = async (bot, message, args) => {
