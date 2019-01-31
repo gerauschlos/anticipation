@@ -1,12 +1,8 @@
 const Discord = require("discord.js");
-<<<<<<< HEAD
+
 var lowerCase = require('lower-case');
 const fs = require ('fs');
 const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'));
-=======
-const lowerCase = require('lower-case');
-const important = require("../important.js");
->>>>>>> 8b7f8a10f52e3343fc4dd3d6d938d7f8095c9c54
 
 module.exports.run = async (bot, message, args) => {
         let message_sent = args[1];
