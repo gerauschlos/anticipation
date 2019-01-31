@@ -5,12 +5,12 @@ const fs = require ('fs');
 const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'));
 
 module.exports.run = async (bot, message, args) => {
-        let message_sent = args[1];
+        var message_sent = args[1];
         let location = message.channel.parent.name;
 
         // If not in correcet category returns
         if(location !== "Player Chats") return;
-        console.log(important._day);
+       // console.log(important._day);
         if(important._day === true){
             return message.channel.send("You can only use this command at night.");
         }
@@ -24,8 +24,10 @@ module.exports.run = async (bot, message, args) => {
         errors: ["time"]
         }).then(collected => {
             let reply = collected.first().content;
+        //    console.log(reply);
             if (lowerCase(reply) === "y" || lowerCase(reply) === "yes"){
             bot.channels.find(channel => channel.name === "game-logs").send(`${message.author}: `+ message_sent);
+        //    console.log(message_sent)
             message.channel.send(":thumbsup:")
             } else {
             message.channel.send("**Cancelled**");  

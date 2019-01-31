@@ -11,10 +11,10 @@ module.exports.run = async (bot, message, args) => {
     
 
    // var test = {"test":9}
-   console.log(important.test)
+ //  console.log(important.test)
     important.test = 100;
   //  test = JSON.stringify(important);
-    console.log(JSON.stringify(important));
+ //   console.log(JSON.stringify(important));
 
     //console.log(important.testing)
  /*   function finished(err){

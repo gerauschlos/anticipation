@@ -11,8 +11,8 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(`404: Not Found!`)
     }
 
-    if(banned.hasPermission === ADMINISTRATOR){
-        return message.channel.send(banned + " is ")
+    if(banned.hasPermission === 'ADMINISTRATOR'){
+        return message.channel.send(banned + " is an administrator and I refuse to ban them <:ree:538562884909662223>");
     }
 
     if(!banned) {

@@ -14,6 +14,10 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(`Please mention a valid user!`)
     }
 
+    if(kicked.hasPermission('ADMINISTRATOR') === true){
+        return message.channel.send(kicked + " is an administrator and I refuse to kick them <:ree:538562884909662223>");
+    }
+
     if (!kicked.bannable) {
         return message.channel.send(`I cannot kick this user! Do they have a higher role? Do I have ban permissions? `)
     }
