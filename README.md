@@ -1,4 +1,4 @@
-﻿﻿# Anticipation
+## Anticipation
 
 Anticipation is a discord bot for the Town of Salem: Anticipation discord.
 
