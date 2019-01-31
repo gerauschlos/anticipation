@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         }})
     
     } else {
-        message.channel.send(`⛔ Create an account first!`)
+        return message.channel.send(`⛔ Create an account first!`);
     }
 
     

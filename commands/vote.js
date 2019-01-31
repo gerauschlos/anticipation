@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const important = require("../important.js");
+const fs = require ("fs");
+const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'))
 
 module.exports.run = async (bot, message, args) => {
         var player = new Map();

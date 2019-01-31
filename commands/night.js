@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
-const important = require("../important.js");
+const fs = require ("fs");
+const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'))
 
 
 module.exports.run = async (bot, message, args) => {
     // console.log("Important: "+important.getday());
-    let cell = important.getjailed();
-    console.log(important.getjailed());
-    let eachChannel = "wow";
+    let cell = important._jailed;
+    
     let match_members = message.guild.roles.get("529053936120758303"); //UPDATED
     if(message.channel.name !== "mainmatch") return;
     if(message.member.roles.some(r=>["Administrator", "Host", "Owner"].includes(r.name))){
@@ -18,8 +18,12 @@ module.exports.run = async (bot, message, args) => {
           .catch(console.error)
         message.delete().catch();
         message.channel.send("🌃 Sunset"+` <@&529053936120758303>`);
-        important.setday(false);
-        if(cell !== "no"){
+        important._day = false;
+        fs.writeFile('important.json',JSON.stringify(important),'utf8',(err) => {
+        if (err) throw err;
+        console.log("Saved.");
+    });
+        if(cell !== "noone"){
             message.guild.channels.find(channel => channel.name === cell).send("You have been jailed")
             message.guild.channels.find(channel => channel.name === cell).send("Use '!?send [message]' to talk to the jailor")
             message.guild.channels.find(channel => channel.name === "jail").send("You have successfully jailed the user")

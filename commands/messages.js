@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
-const important = require("../important.js");
+const fs = require ("fs");
+const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'))
 
 module.exports.run = async (bot, message, args) => {
     let message_sent = args[1];
-    let cell = important.getjailed();
+    let cell = important._jailed;
     let message_channel = message.channel.name
     console.log(cell);
     if(cell === "no") return;

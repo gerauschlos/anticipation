@@ -1,8 +1,26 @@
 const Discord = require("discord.js");
-const important = require("../important.js");
+const fs = require('fs');
+const important = JSON.parse(fs.readFileSync('important.json'));
 
 module.exports.run = async (bot, message, args) => {
     let cell = "Does it even matter?";
+    //console.log(important.testing)
+   // let test = toString(important.test);
+    
+    
+    
+
+   // var test = {"test":9}
+   console.log(important.test)
+    important.test = 100;
+  //  test = JSON.stringify(important);
+    console.log(JSON.stringify(important));
+
+    //console.log(important.testing)
+ /*   function finished(err){
+        console.log(err)
+    }*/
+    //console.log(important.testing)
     let location = message.channel.name;
     let tagged = message.mentions.roles.first();
     if(tagged === undefined){
@@ -26,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 
     
     if(location !== "jail") return;
-    if(important.getday() === false){
+    if(important._day === false){
         message.channel.send("This command cannot be used in the night :grimacing:");
         return;
     }
@@ -35,8 +53,12 @@ module.exports.run = async (bot, message, args) => {
     if(message.member.roles.some(r=>["Host", "Administrator", "Owner", important.jailor].includes(r.name))){
            
         let jailed = cell.toString();
-        important.setjailed(jailed);  
+        important._jailed = jailed;  
     }
+        fs.writeFile('important.json',JSON.stringify(important),'utf8',(err) => {
+        if (err) throw err;
+        console.log("Saved.");
+    });
 
 }
 

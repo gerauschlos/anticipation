@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 var lowerCase = require('lower-case');
-const important = require("../important.js");
+const fs = require ('fs');
+const important = JSON.parse(fs.readFileSync('important.json', 'utf-8'));
 
 module.exports.run = async (bot, message, args) => {
         let message_sent = args[1];
@@ -8,7 +9,8 @@ module.exports.run = async (bot, message, args) => {
 
         // If not in correcet category returns
         if(location !== "Player Chats") return;
-        if(important.getday()){
+        console.log(important._day);
+        if(important._day === true){
             return message.channel.send("You can only use this command at night.");
         }
 
