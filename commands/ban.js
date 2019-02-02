@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     let reason = args.slice(1).join(' ');
 
 
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) ) {
+    if(!message.member.roles.some(r=>["Administrator", "Trusted"].includes(r.name)) ) {
         return message.channel.send(`404: Not Found!`)
     }
 
