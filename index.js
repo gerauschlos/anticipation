@@ -49,9 +49,7 @@ bot.on("message", async message => {
     
     let messageArray = message.content.split(" ")
     let cmd = messageArray[0];
-   // console.log(cmd);
     let args = message.content.split(cmd); 
-  //  console.log(args);
 
 
     if (message.content.startsWith(prefix)) {
