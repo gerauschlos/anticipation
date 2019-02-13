@@ -26,7 +26,7 @@ The commands can be found by running the !?help command or are listed here.
 
 -Day:-
     !?day
-    Enables Match-Members to talk in #mainmatch.
+    Enables Match-Members to talk in #mainmatch. (Admin+)
 
 -Jail:-
     !?jail <mention>
@@ -52,6 +52,10 @@ The commands can be found by running the !?help command or are listed here.
     !?say <message>
     The bot will say anything after `!?say`. (Admin+)
 
+-Send:-
+    !?send <message>
+    Sends message to jailor of the current match or to the jailed.
+    
 -Info:-
     !?info [role]
     The info for a custom role will come up in a fancy embed. :GWowoBlobCoffee:
