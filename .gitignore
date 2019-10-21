@@ -1,9 +1,0 @@
-config.json
-rolelist.txt
-.eslintrc.js
-database.sqlite
-
-node_modules/*
-node_modules/
-.vscode/*
-.vscode
