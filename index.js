@@ -55,10 +55,12 @@ bot.on('ready', async () => {
     console.log(`Anticipation is now ready to receive commands.`);
     bot.user.setPresence({
         game: {
-            name: 'itself get created.',
-            type: 'WATCHING',
+            name: '| Prefix: ?',
+            type: 'PLAYING',
         },
         status: 'online',
         afk: false,
     }).catch(err => console.log(err));
 });
+
+bot.login(config.token);
