@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Gangster8192/anticipation#readme",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "inquirer": "^7.0.4"
   }
 }
