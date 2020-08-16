@@ -1,7 +1,9 @@
-config.json
+\.idea/
 
-node_modules/*
-node_modules/
+config\.py
 
-.vscode/*
-.vscode
+\.vscode/
+
+__pycache__
+
+discord.log
