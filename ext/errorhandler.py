@@ -39,8 +39,8 @@ class ErrorHandler(commands.Cog):
                 return
 
         elif isinstance(error, commands.MissingRole):
-          if (ctx.command.qualified_name == "whisper"):
-              await ctx.author.send("`You aren't even playing the game, idiot.`")
+            if (ctx.command.qualified_name == "whisper"):
+                await ctx.author.send("`You aren't even playing the game, idiot.`")
 
         else:
             print('Ignoring exception in command {}:'.format(
