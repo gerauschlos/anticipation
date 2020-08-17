@@ -25,15 +25,18 @@ class Game(commands.Cog):
             await ctx.send("`You can't whisper to yourself.`")
             return
 
+        sanitizedmessage = commands.clean_content(
+            fix_channel_mentions=True, use_nicknames=True, escape_markdown=True).convert(ctx, message)
+
         try:
-            await user.send(f"`{ctx.author.display_name} whispers to you: {message}`")
-            await ctx.author.send(f"`You whisper to {user.display_name}: {message}`")
+            await user.send(f"`{ctx.author.display_name} whispers to you: {sanitizedmessage}`")
+            await ctx.author.send(f"`You whisper to {user.display_name}: {sanitizedmessage}`")
             if (blackmailer.id == ctx.author.id or blackmailer.id == user.id):
                 return
             await blackmailer.send(
-                f"`{ctx.author.display_name} whispers to {user.display_name}: {message}`")
+                f"`{ctx.author.display_name} whispers to {user.display_name}: {sanitizedmessage}`")
             await mainmatchChannel.send(f"`{ctx.author.display_name} whispers to {user.display_name}`")
-            await whispersChannel.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {message}`")
+            await whispersChannel.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {sanitizedmessage}`")
         except discord.HTTPException:
             await ctx.author.send(f"`You could not whisper to {user.display_name}.`")
 
