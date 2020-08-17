@@ -14,7 +14,8 @@ class Game(commands.Cog):
     async def whipser(self, ctx, user: discord.User, *, message=None):
 
         blackmailer = await commands.UserConverter().convert(ctx, config.blackmailer)
-        mainmatch = await commands.TextChannelConverter().convert(ctx, config.mainmatch)
+        mainmatchChannel = await commands.TextChannelConverter().convert(ctx, config.mainmatchChannel)
+        whispersChannel = await commands.TextChannelConverter().convert(ctx, config.whispersChannel)
 
         if message is None:
             await ctx.send("`You didn't specifiy a message!`")
@@ -31,7 +32,8 @@ class Game(commands.Cog):
                 return
             await blackmailer.send(
                 f"`{ctx.author.display_name} whispers to {user.display_name}: {message}`")
-            await mainmatch.send(f"`{ctx.author.display_name} whispers to {user.display_name}`")
+            await mainmatchChannel.send(f"`{ctx.author.display_name} whispers to {user.display_name}`")
+            await whispersChannel.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {message}`")
         except discord.HTTPException:
             await ctx.author.send(f"`You could not whisper to {user.display_name}.`")
 

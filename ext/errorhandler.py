@@ -24,16 +24,23 @@ class ErrorHandler(commands.Cog):
         if isinstance(error, commands.CommandNotFound):
             return
 
+        elif isinstance(error, commands.PrivateMessageOnly):
+            return
+
         elif isinstance(error, commands.NoPrivateMessage):
             return
 
         elif isinstance(error, commands.DisabledCommand):
             await ctx.send("This command has been disabled.")
-        
+
         elif isinstance(error, commands.BadArgument):
+            if (ctx.command.qualified_name == "whisper"):
+                await ctx.author.send("`User was not found.`")
+                return
+
+        elif isinstance(error, commands.MissingRole):
           if (ctx.command.qualified_name == "whisper"):
-            await ctx.author.send("`User was not found.`")
-            return
+              await ctx.author.send("`You aren't even playing the game, idiot.`")
 
         else:
             print('Ignoring exception in command {}:'.format(
