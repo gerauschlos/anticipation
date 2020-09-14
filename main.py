@@ -1,6 +1,18 @@
 import logging
 import config
+import sys
+import os
+import ctypes
+from cv2 import waitKey
 from discord.ext import commands
+
+
+ctypes.windll.kernel32.SetConsoleTitleW("Anticibot v0.0.2~alpha")
+
+
+class DevNull:
+    def write(self, msg):
+        pass
 
 
 class Main(commands.Bot):
@@ -19,6 +31,7 @@ bot.load_extension('jishaku')
 
 @bot.event
 async def on_ready():
+    os.system("cls")
     print("Bot is online!")
 
 
@@ -35,4 +48,10 @@ handler.setFormatter(logging.Formatter(
     '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-bot.run(config.token)
+try:
+    bot.run(config.token)
+except:
+    os.system("cls")
+    print("Invalid token was provided.")
+    sys.stderr = DevNull()
+    waitKey(10000)
