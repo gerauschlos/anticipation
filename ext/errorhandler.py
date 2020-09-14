@@ -1,4 +1,3 @@
-import discord
 import traceback
 import sys
 from discord.ext import commands
@@ -24,6 +23,9 @@ class ErrorHandler(commands.Cog):
         if isinstance(error, commands.CommandNotFound):
             return
 
+        elif isinstance(error, commands.NotOwner):
+            return
+
         elif isinstance(error, commands.PrivateMessageOnly):
             return
 
@@ -35,12 +37,21 @@ class ErrorHandler(commands.Cog):
 
         elif isinstance(error, commands.BadArgument):
             if (ctx.command.qualified_name == "whisper"):
-                await ctx.author.send("`User was not found.`")
-                return
+                return await ctx.author.send("`User was not found.`")
+            else:
+                print('Ignoring exception in command {}:'.format(
+                    ctx.command), file=sys.stderr)
+            traceback.print_exception(
+                type(error), error, error.__traceback__, file=sys.stderr)
 
         elif isinstance(error, commands.MissingRole):
             if (ctx.command.qualified_name == "whisper"):
-                await ctx.author.send("`You aren't even playing the game, idiot.`")
+                await ctx.author.send("`You are not currently playing!`")
+            else:
+                print('Ignoring exception in command {}:'.format(
+                    ctx.command), file=sys.stderr)
+            traceback.print_exception(
+                type(error), error, error.__traceback__, file=sys.stderr)
 
         else:
             print('Ignoring exception in command {}:'.format(
