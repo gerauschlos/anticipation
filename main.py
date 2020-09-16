@@ -8,6 +8,7 @@ from discord.ext import commands
 
 
 ctypes.windll.kernel32.SetConsoleTitleW("Anticibot v0.0.2~alpha")
+os.system("cls")
 
 
 class DevNull:
@@ -31,7 +32,6 @@ bot.load_extension('jishaku')
 
 @bot.event
 async def on_ready():
-    os.system("cls")
     print("Bot is online!")
 
 
