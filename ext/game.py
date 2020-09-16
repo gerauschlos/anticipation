@@ -20,18 +20,13 @@ class Game(commands.Cog):
         game_mayor = await commands.RoleConverter().convert(ctx, config.game_mayor)
 
         if ctx.author.id is not player_mayor.id:
-            return await ctx.author.send("`You aren't mayor!`")
+            return await ctx.author.send("`You are not mayor.`")
 
         await ctx.author.add_roles(game_mayor, reason="Auto-assign (revealed mayor)")
 
         revealed_message = await ctx.send(f"`{player_mayor} has revealed themselves as mayor!`")
 
-        try:
-            await revealed_message.pin(reason="Auto-pin (revealed mayor)")
-        except discord.HTTPException as _Exception:
-            await ctx.send(f"A unexpected error occured! This incident has been logged.\n`{_Exception}`")
-            dev = await commands.UserConverter().convert(ctx, "219915802818773014")
-            await dev.send(f"A unexpected error occured!\n`{_Exception}`")
+        await revealed_message.pin(reason="Auto-pin (revealed mayor)")
 
     @commands.command(name="whisper", aliases=["whisp", "w", "msg"])
     async def whipser(self, ctx, user: discord.User, *, message=None):
@@ -52,7 +47,6 @@ class Game(commands.Cog):
             guild.roles, id=int(config.role_mayor_id))
         #                       ROLE IDS                         #
         player_blackmailer = await commands.UserConverter().convert(ctx, config.player_blackmailer_id)
-        # player_mayor = await commands.UserConverter().convert(ctx, config.player_mayor_id)
 
         if not isinstance(ctx.channel, discord.channel.DMChannel):
             await ctx.message.delete()
@@ -64,11 +58,11 @@ class Game(commands.Cog):
         if role_player not in reciever.roles:
             return await ctx.send("You cannot whisper to someone who is not playing.")
 
-        if ctx.author.id == user.id:
-            return await ctx.send("`You cannot whisper to yourself.`")
-
         if role_mayor in whisperer.roles:
             return await ctx.author.send("`You cannot whisper as a revealed mayor.`")
+
+        if ctx.author.id == user.id:
+            return await ctx.send("`You cannot whisper to yourself.`")
 
         if role_mayor in reciever.roles:
             return await ctx.author.send("`You cannot whisper to a revealed mayor.`")
