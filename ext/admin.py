@@ -1,22 +1,8 @@
 from discord.ext import commands
-import asyncio
 import traceback
-import discord
-import inspect
 import textwrap
-import importlib
 from contextlib import redirect_stdout
 import io
-import os
-import re
-import sys
-import copy
-import time
-import subprocess
-from typing import Union, Optional
-
-import datetime
-from collections import Counter
 
 
 class Admin(commands.Cog):
