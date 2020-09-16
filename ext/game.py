@@ -67,8 +67,8 @@ class Game(commands.Cog):
         if ctx.author.id == user.id:
             return await ctx.send("`You cannot whisper to yourself.`")
 
-        # if role_mayor in whisperer.roles:
-        #     return await ctx.author.send("`You cannot whisper as a revealed mayor.`")
+        if role_mayor in whisperer.roles:
+            return await ctx.author.send("`You cannot whisper as a revealed mayor.`")
 
         if role_mayor in reciever.roles:
             return await ctx.author.send("`You cannot whisper to a revealed mayor.`")
