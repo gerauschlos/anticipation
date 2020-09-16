@@ -37,23 +37,16 @@ class ErrorHandler(commands.Cog):
 
         elif isinstance(error, commands.BadArgument):
             if (ctx.command.qualified_name == "whisper"):
-                return await ctx.author.send("`User was not found.`")
+                return await ctx.author.send("`The specified user was not found.`")
             else:
-                print('Ignoring exception in command {}:'.format(
-                    ctx.command), file=sys.stderr)
-            traceback.print_exception(
-                type(error), error, error.__traceback__, file=sys.stderr)
-
-        elif isinstance(error, commands.MissingRole):
-            if (ctx.command.qualified_name == "whisper"):
-                await ctx.author.send("`You are not currently playing!`")
-            else:
+                await ctx.send(f"A unexpected error occured!\n`{error}`")
                 print('Ignoring exception in command {}:'.format(
                     ctx.command), file=sys.stderr)
             traceback.print_exception(
                 type(error), error, error.__traceback__, file=sys.stderr)
 
         else:
+            await ctx.send(f"A unexpected error occured!\n`{error}`")
             print('Ignoring exception in command {}:'.format(
                 ctx.command), file=sys.stderr)
             traceback.print_exception(
