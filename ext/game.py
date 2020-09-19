@@ -73,7 +73,7 @@ class Game(commands.Cog):
         oldsanitizedmessage = ext.utils.unmark(message)
         newsanitizedmessage = re.sub("[`]+", "", oldsanitizedmessage)
 
-        if newsanitizedmessage == "":
+        if newsanitizedmessage == "" or len(newsanitizedmessage) == 0:
             return await ctx.author.send("`Your message was invalid.`")
 
         if len(newsanitizedmessage) > 200:

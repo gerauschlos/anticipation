@@ -3,6 +3,7 @@ import traceback
 import textwrap
 from contextlib import redirect_stdout
 import io
+import discord
 
 
 class Admin(commands.Cog):
@@ -27,6 +28,7 @@ class Admin(commands.Cog):
         env = {
             'bot': self.bot,
             'ctx': ctx,
+            'discord': discord,
             'channel': ctx.channel,
             'author': ctx.author,
             'guild': ctx.guild,
