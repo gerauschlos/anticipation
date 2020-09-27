@@ -43,10 +43,10 @@ class Game(commands.Cog):
         #                       PLAYER IDS                       #
         role_player = discord.utils.get(
             guild.roles, id=int(config.role_player_id))
-        role_mayor = discord.utils.get(
-            guild.roles, id=int(config.role_mayor_id))
-        #                       ROLE IDS                         #
-        player_blackmailer = await commands.UserConverter().convert(ctx, config.player_blackmailer_id)
+
+        if config.game_has_mayor is True:
+            role_mayor = discord.utils.get(
+                guild.roles, id=int(config.role_mayor_id))
 
         if not isinstance(ctx.channel, discord.channel.DMChannel):
             await ctx.message.delete()
@@ -81,14 +81,23 @@ class Game(commands.Cog):
 
         try:
             await user.send(f"`{ctx.author.display_name} whispers to you: {newsanitizedmessage}`")
-            await ctx.author.send(f"`You whisper to {user.display_name}: {newsanitizedmessage}`")
-            if (player_blackmailer.id == ctx.author.id or player_blackmailer.id == user.id):
-                return
-            await player_blackmailer.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {newsanitizedmessage}`")
-            await mainmatch_channel.send(f"`{ctx.author.display_name} whispers to {user.display_name}`")
-            await whispers_channel.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {newsanitizedmessage}`")
-        except discord.HTTPException:
-            await ctx.author.send(f"`You could not whisper to {user.display_name}.`")
+        except discord.Forbidden:
+            await ctx.author.send("`The person you are trying to whisper to has turned off direct messages.`")
+        except discord.HTTPException as _Exception:
+            await ctx.author.send("`You are trying to whisper to a bot or something wack.`")
+            await ctx.author.send(f"```Printing shortened stacktrace for debugging purposes.\n{_Exception}```")
+
+        await ctx.author.send(f"`You whisper to {user.display_name}: {newsanitizedmessage}`")
+
+        if config.game_has_blackmailer is True:
+            if (ctx.author.id not in config.player_blackmailers_ids or user.id not in config.player_blackmailers_ids):
+                for player_blackmailer_id in config.player_blackmailers_ids:
+                    player_blackmailer = self.bot.get_user(
+                        player_blackmailer_id)
+                    await player_blackmailer.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {newsanitizedmessage}`")
+
+        await mainmatch_channel.send(f"`{ctx.author.display_name} whispers to {user.display_name}`")
+        await whispers_channel.send(f"`{ctx.author.display_name} whispers to {user.display_name}: {newsanitizedmessage}`")
 
 
 def setup(bot):
