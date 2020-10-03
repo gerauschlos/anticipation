@@ -1,3 +1,5 @@
+import re
+
 from markdown import Markdown
 from io import StringIO
 
@@ -19,5 +21,6 @@ __md = Markdown(output_format="plain")
 __md.stripTopLevelTags = False
 
 
-def unmark(text):
-    return __md.convert(text)
+def sanitize_text(text):
+    unmarked_text = __md.convert(text)
+    return re.sub("[`]+", "", unmarked_text)
