@@ -36,7 +36,7 @@ class ErrorHandler(commands.Cog):
             await ctx.send("This command has been disabled.")
 
         else:
-            await ctx.send(f"A unexpected error occured!\n`{error}`")
+            await ctx.send(f"`{error}`")
             print('Ignoring exception in command {}:'.format(
                 ctx.command), file=sys.stderr)
             traceback.print_exception(

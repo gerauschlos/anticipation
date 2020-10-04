@@ -113,9 +113,9 @@ class Game(commands.Cog):
             await ctx.message.delete()
             await ctx.send("Whispers only work in direct messages! Direct message me to proceed.")
         elif isinstance(error, BadArgument):
-            await ctx.send("`You did not give a valid player or message.`")
+            await ctx.send("`You did not specify a valid user!`")
         else:
-            await ctx.send(f"A unexpected error occured!\n`{error}`")
+            await ctx.send(f"`{error}`")
             print('Ignoring exception in command {}:'.format(
                 ctx.command), file=sys.stderr)
             traceback.print_exception(
