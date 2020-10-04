@@ -6,6 +6,7 @@ import os
 import ctypes
 from cv2 import waitKey
 from discord.ext import commands
+import discord
 
 ctypes.windll.kernel32.SetConsoleTitleW(f"Anticibot v{config.version}")
 os.system("cls")
@@ -24,10 +25,11 @@ class Bot(commands.Bot):
             self.load_extension(extension)
 
     async def on_ready(self):
-        print("Bot is online!")
 
         self.load_extensions(config.extensions)
         self.load_extension('jishaku')
+
+        print("Bot is online!")
 
 
 def logger_setup():
@@ -41,7 +43,12 @@ def logger_setup():
 
 
 if __name__ == "__main__":
-    bot = Bot(command_prefix=config.prefix, case_insensitive=True)
+    intents = discord.Intents.default()
+    intents.members = True
+    intents.guilds = True
+    intents.messages = True
+    bot = Bot(command_prefix=config.prefix,
+              case_insensitive=True, intents=intents)
 
     try:
         bot.run(config.token)

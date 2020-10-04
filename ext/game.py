@@ -3,6 +3,8 @@ from discord import User, Member
 from discord.ext.commands import PrivateMessageOnly, BadArgument, Context
 import config
 import re
+import sys
+import traceback
 import ext.utils
 from discord.ext import commands
 
@@ -16,13 +18,6 @@ class Game(commands.Cog):
         self.guild = self.bot.get_guild(int(config.guild_id))
         self.player_role = discord.utils.get(
             self.guild.roles, id=int(config.role_player_id))
-
-    async def cog_check(self, ctx: Context) -> bool:
-        member = self.guild.get_member(ctx.author.id)
-
-        if self.player_role not in member.roles:
-            return False
-        return True
 
     @commands.command(name="reveal", aliases=["rev"], enabled=False)
     @commands.guild_only()
@@ -47,18 +42,23 @@ class Game(commands.Cog):
             mayor_role = discord.utils.get(
                 self.guild.roles, id=int(config.role_mayor_id))
 
-        if self.player_role not in reciever.roles:
-            await ctx.send("You cannot whisper to someone who is not playing.")
+            if mayor_role in whisperer.roles:
+                await ctx.author.send("`You cannot whisper as a revealed mayor.`")
+                return False
+            elif mayor_role in reciever.roles:
+                await ctx.author.send("`You cannot whisper to a revealed mayor.`")
+                return False
+
+        if self.player_role not in whisperer.roles:
+            await ctx.send("`You cannot whisper if you are not in a game.`")
             return False
-        elif mayor_role in whisperer.roles:
-            await ctx.author.send("`You cannot whisper as a revealed mayor.`")
+        elif self.player_role not in reciever.roles:
+            await ctx.send("`You cannot whisper to someone who is not playing.`")
             return False
-        elif ctx.author.id == whisperer.id:
+        elif ctx.author.id == reciever.id:
             await ctx.send("`You cannot whisper to yourself.`")
             return False
-        elif mayor_role in reciever.roles:
-            await ctx.author.send("`You cannot whisper to a revealed mayor.`")
-            return False
+
         else:
             return True
 
@@ -102,8 +102,8 @@ class Game(commands.Cog):
 
         sanitized_message = ext.utils.sanitize_text(message)
 
-        if self.can_whisper(ctx, reciever, whisperer) and self.is_valid_message(message):
-            self.send_whisper(ctx, reciever, whisperer, sanitized_message)
+        if await self.can_whisper(ctx, reciever, whisperer) and await self.is_valid_message(ctx, sanitized_message):
+            await self.send_whisper(ctx, reciever, whisperer, sanitized_message)
 
     @whipser.error
     async def whipser_error(self, ctx: Context, error):
@@ -111,7 +111,13 @@ class Game(commands.Cog):
             await ctx.message.delete()
             await ctx.send("Whispers only work in direct messages! Direct message me to proceed.")
         elif isinstance(error, BadArgument):
-            await ctx.send("You did not give a valid player or message.")
+            await ctx.send("`You did not give a valid player or message.`")
+        else:
+            await ctx.send(f"A unexpected error occured!\n`{error}`")
+            print('Ignoring exception in command {}:'.format(
+                ctx.command), file=sys.stderr)
+            traceback.print_exception(
+                type(error), error, error.__traceback__, file=sys.stderr)
 
 
 def setup(bot):
