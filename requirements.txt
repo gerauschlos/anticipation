@@ -1,4 +1,4 @@
 discord.py
 jishaku
 opencv-python
-Markdown
+markdown

@@ -35,16 +35,6 @@ class ErrorHandler(commands.Cog):
         elif isinstance(error, commands.DisabledCommand):
             await ctx.send("This command has been disabled.")
 
-        elif isinstance(error, commands.BadArgument):
-            if (ctx.command.qualified_name == "whisper"):
-                return await ctx.author.send("`The specified user was not found.`")
-            else:
-                await ctx.send(f"A unexpected error occured!\n`{error}`")
-                print('Ignoring exception in command {}:'.format(
-                    ctx.command), file=sys.stderr)
-            traceback.print_exception(
-                type(error), error, error.__traceback__, file=sys.stderr)
-
         else:
             await ctx.send(f"A unexpected error occured!\n`{error}`")
             print('Ignoring exception in command {}:'.format(

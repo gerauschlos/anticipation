@@ -7,7 +7,7 @@ import ctypes
 from cv2 import waitKey
 from discord.ext import commands
 
-ctypes.windll.kernel32.SetConsoleTitleW("Anticibot v0.0.2~alpha")
+ctypes.windll.kernel32.SetConsoleTitleW(f"Anticibot v{config.version}")
 os.system("cls")
 
 
