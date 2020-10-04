@@ -19,15 +19,15 @@ class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.load_extensions(config.extensions)
-        self.load_extension('jishaku')
-
     def load_extensions(self, extensions: List[str]):
         for extension in extensions:
             self.load_extension(extension)
 
     async def on_ready(self):
         print("Bot is online!")
+
+        self.load_extensions(config.extensions)
+        self.load_extension('jishaku')
 
 
 def logger_setup():
