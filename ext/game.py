@@ -15,7 +15,7 @@ class Game(commands.Cog):
         self.bot = bot
         self.guild = self.bot.get_guild(int(config.guild_id))
         self.player_role = discord.utils.get(
-            self.guild.roles, id=int(config.player_role_id))
+            self.guild.roles, id=int(config.role_player_id))
 
     async def cog_check(self, ctx: Context) -> bool:
         member = self.guild.get_member(ctx.author.id)
