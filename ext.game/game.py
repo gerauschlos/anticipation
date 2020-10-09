@@ -5,7 +5,7 @@ import config
 import re
 import sys
 import traceback
-import ext.utils
+import utils
 from discord.ext import commands
 
 from main import Bot
@@ -102,7 +102,7 @@ class Game(commands.Cog):
         whisperer = await guild.fetch_member(ctx.author.id)
         receiver = await guild.fetch_member(user.id)
 
-        sanitized_message = ext.utils.sanitize_text(message)
+        sanitized_message = utils.sanitize_text(message)
 
         if await self.can_whisper(ctx, receiver, whisperer) and await self.is_valid_message(ctx, sanitized_message):
             await self.send_whisper(ctx, receiver, whisperer, sanitized_message)

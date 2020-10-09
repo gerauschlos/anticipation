@@ -20,13 +20,18 @@ class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def load_extensions(self, extensions: List[str]):
+    def load_extensions(self):
+        extensions = [f"ext.{f[:-3]}" for f in os.listdir('./ext')]
+        game_extensions = [f"ext.game.{f[:-3]}" for f in os.listdir('./ext.game')]
+
+        extensions += game_extensions
+
         for extension in extensions:
             self.load_extension(extension)
 
     async def on_ready(self):
 
-        self.load_extensions(config.extensions)
+        self.load_extensions()
         self.load_extension('jishaku')
 
         print("Bot is online!")

@@ -1,6 +1,5 @@
 token = ""
 prefix = ""
-extensions = ["ext.admin", "ext.errorhandler", "ext.game"]
 guild_id = ""
 version = ""
 
