@@ -6,7 +6,7 @@ from discord.ext import commands
 from main import Bot
 
 
-class Game_Admin(commands.Cog):
+class GameHost(commands.Cog):
 
     def __init__(self, bot: Bot):
         self.bot = bot
@@ -42,4 +42,4 @@ class Game_Admin(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Game_Admin(bot))
+    bot.add_cog(GameHost(bot))

@@ -11,7 +11,7 @@ from discord.ext import commands
 from main import Bot
 
 
-class Game(commands.Cog):
+class Player(commands.Cog):
 
     def __init__(self, bot: Bot):
         self.bot = bot
@@ -123,4 +123,4 @@ class Game(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Game(bot))
+    bot.add_cog(Player(bot))
