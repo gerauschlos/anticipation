@@ -11,7 +11,8 @@ class GameHost(commands.Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
         self.guild = self.bot.get_guild(int(config.guild_id))
-        self.player_role = discord.utils.get(self.guild.roles, id=int(config.role_player_id))
+        self.player_role = discord.utils.get(
+            self.guild.roles, id=int(config.role_player_id))
 
     async def can_timecycle(self, ctx: Context) -> bool:
         if ctx.message.channel.id != int(config.mainmatch_channel_id):

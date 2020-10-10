@@ -22,7 +22,8 @@ class Bot(commands.Bot):
 
     def load_extensions(self):
         extensions = [f"ext.{f[:-3]}" for f in os.listdir('./ext')]
-        game_extensions = [f"ext.game.{f[:-3]}" for f in os.listdir('./ext.game')]
+        game_extensions = [
+            f"ext.game.{f[:-3]}" for f in os.listdir('./ext.game')]
 
         extensions += game_extensions
 
